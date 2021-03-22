@@ -1,4 +1,23 @@
+spring:
+  application:
+    name: springboot-test
+  profiles:
+    active: dev
+---
 server:
-  address: 8787
   servlet:
     context-path: /wanho
+  port: 8899
+spring:
+  config:
+    activate:
+      on-profile: test
+---
+---
+# ��������
+server:
+  port: 8083
+spring:
+  config:
+    activate:
+      on-profile: dev

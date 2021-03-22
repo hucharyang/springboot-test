@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: springboot-test
+  profiles:
+    active: dev
+---
+server:
+  servlet:
+    context-path: /wanho
+  port: 8899
+spring:
+  config:
+    activate:
+      on-profile: test
+---
+---
+# 生产配置
+server:
+  port: 8083
+spring:
+  config:
+    activate:
+      on-profile: dev
+  # druid数据源配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/studb?useUnicode=true&characterEncoding=utf8
+    username: root
+    data-password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+# mybatis的配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: net.wanho
+# pagehelper配置
+pagehelper:
+  helper-dialect: mysql
+  params: count=countsql
+  reasonable: true
+  support-methods-arguments: true

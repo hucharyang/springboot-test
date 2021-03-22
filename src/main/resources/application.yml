@@ -1,4 +1,0 @@
-server:
-  address: 8787
-  servlet:
-    context-path: /wanho
